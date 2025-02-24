@@ -153,7 +153,7 @@ router.post('/login-admin', async (req, res) => {
                 minute: '2-digit',
                 second: '2-digit',
                 hour12: true,
-                timeZone: 'America/Mexico_City' // Cambia según tu zona horaria
+                timeZone: 'America/Mexico_City' // Cambia según tu zona horaria  
             });
 
         return res
