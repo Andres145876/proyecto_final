@@ -112,7 +112,8 @@ router.post('/login', async (req, res) => {
                 token,
                 emitido: formatTime(decoded.iat),
                 expira: formatTime(decoded.exp),
-                userId: user._id
+                userId: user._id,
+                rol:"Usuario"
             });
 
     } catch (error) {
@@ -164,7 +165,8 @@ router.post('/login-admin', async (req, res) => {
                 token,
                 emitido: formatTime(decoded.iat),
                 expira: formatTime(decoded.exp),
-                userId: admin._id
+                userId: admin._id,
+                rol:"Administrador"
             });
 
     } catch (error) {
