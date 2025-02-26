@@ -32,9 +32,9 @@ router.post('/register', async (req, res) => {
         // Guardar en la base de datos
         await newUser.save();
 
-        return res.status(201).json({ message: 'Usuario creado correctamente' });
+        return res.status(201).json({ message: 'Bienvenido a cafeteria bora, ahora eres parte de muestra familia!!!' });
     } catch (error) {
-        return res.status(500).json({ message: 'Error de servidor', error: error.message });
+        return res.status(500).json({ message: 'Error del servidor', error: error.message });
     }
 });
 
@@ -80,7 +80,7 @@ router.post('/login', async (req, res) => {
         // Comparar contraseñas
         const isMatch = await bcrypt.compare(pass, user.pass);
         if (!isMatch) {
-            return res.status(400).json({ message: 'Contraseña incorrecta' });
+            return res.status(400).json({ message: 'Los campos son incorrectos, intenta de nuevo' });
         }
 
         // Generar token JWT
