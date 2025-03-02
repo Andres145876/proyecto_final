@@ -1,26 +1,39 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import RegisterUser from '../components/RegisterUser';
 import RegisterAdmin from '../components/RegisterAdmin';
 import Login from '../components/Login';
+import { useAuth } from '../Contexto/Authentication';
+import { useNavigate } from 'react-router-dom';
+import '../estilos/HomePage.css';
 
 const Home = () => {
-  return (
-    <div className="home-container">
-      <h1>Bienvenido a la Cafetería</h1>
-      <p>Regístrate o inicia sesión según tu rol:</p>
+    const { user } = useAuth();
+    const navigate = useNavigate();
 
-      <div className="forms-container">
-        {/* Formulario para registrar un usuario normal */}
-        <RegisterUser />
+    useEffect(() => {
+        console.log('Estado del usuario:', user);
 
-        {/* Formulario para registrar un administrador */}
-        <RegisterAdmin />
+        if (user) {
+            if (user.role === 'Administrador') {
+                navigate('/admin');
+            } else if (user.role === 'Usuario') {
+                navigate('/user');
+            }
+        }
+    }, [user, navigate]);
 
-        {/* Formulario de login con opción de logueo como usuario o admin */}
-        <Login />
-      </div>
-    </div>
-  );
+    return (
+        <div className="home-container">
+            <h1>Bienvenido a la Cafetería</h1>
+            <p>Regístrate o inicia sesión para ser parte de nuestra:</p>
+
+            <div className="forms-container">
+                <RegisterUser />
+                <RegisterAdmin />
+                <Login />
+            </div>
+        </div>
+    );
 };
 
 export default Home;

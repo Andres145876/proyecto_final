@@ -170,6 +170,7 @@ router.post('/login-admin', async (req, res) => {
             });
 
     } catch (error) {
+        console.error(error);
         return res.status(500).json({ message: 'Error de servidor', error: error.message });
     }
 });
