@@ -1,28 +1,26 @@
 import axios from 'axios';
 
-export const addProduct = async (productData) => {
+const API_URL = 'http://localhost:4000';
+
+export const getProductos = async () => {
     try {
-        const response = await axios.post('/api/productos', productData);
+        const response = await axios.get(`${API_URL}/productos/ver`, {
+            headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
+        });
         return response.data;
     } catch (error) {
-        throw new Error('Error al agregar producto');
+        throw new Error('No se pudieron cargar los productos');
     }
 };
 
-export const updateProduct = async (id, productData) => {
+export const addProducto = async (nombre, cantidad, precio) => {
     try {
-        const response = await axios.put(`/api/productos/${id}`, productData);
+        const response = await axios.post(`${API_URL}/productos/agregar`, { nombre, cantidad, precio }, {
+            headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
+        });
         return response.data;
     } catch (error) {
-        throw new Error('Error al actualizar producto');
+        throw new Error('No se pudo agregar el producto');
     }
 };
-
-export const getProducts = async () => {
-    try {
-        const response = await axios.get('/api/productos');
-        return response.data;
-    } catch (error) {
-        throw new Error('Error al obtener productos');
-    }
-};
+import axios from 'axios';
