@@ -1,0 +1,167 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+}
+
+.home-container,
+.user-home,
+.admin-panel {
+    max-width: 800px;
+    margin: 20px auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+  /* Formularios */
+form {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+input, select {
+    margin: 5px 0;
+    padding: 8px;
+    font-size: 16px;
+}
+
+button {
+    width: 120px;
+    padding: 8px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+  /* Listas */
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    background: #eee;
+    margin: 5px 0;
+    padding: 8px;
+    border-radius: 4px;
+}
+
+button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.login-container {
+    max-width: 400px;
+    margin: 50px auto;
+}
+
+.login-container form h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.register-container {
+    max-width: 400px;
+    margin: 50px auto;
+}
+
+.register-container form h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.register-container p {
+    text-align: center;
+    color: green;
+}
+
+.product-list {
+    margin-top: 30px;
+}
+
+.product-list ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.product-list li {
+    background-color: #fff;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.product-list li p {
+    margin: 5px 0;
+}
+
+.product-form {
+    max-width: 500px;
+    margin: 30px auto;
+}
+
+.product-form form h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.user-profile {
+    max-width: 600px;
+    margin: 50px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.user-profile h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.user-profile p {
+    font-size: 18px;
+}
