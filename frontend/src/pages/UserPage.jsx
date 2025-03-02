@@ -1,34 +1,42 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';  // Importar useNavigate
+import '../estilos/UserPage.css';
 
 const UserPage = () => {
     const [productos, setProductos] = useState([]);
-    const token = localStorage.getItem('token'); // Obtiene el token del localStorage
+    const token = localStorage.getItem('token');
+    const navigate = useNavigate();  // Inicializar useNavigate
 
     useEffect(() => {
-        fetchProductos(); // Llama a la función para obtener los productos disponibles
+        fetchProductos();
     }, []);
 
-    // Función para obtener los productos disponibles
     const fetchProductos = async () => {
         const res = await fetch('http://localhost:4000/api/productos/ver', {
-            headers: { Authorization: `Bearer ${token}` }, // Envia el token en las cabeceras
+            headers: { Authorization: `Bearer ${token}` },
         });
         const data = await res.json();
-        setProductos(data); // Establece los productos en el estado
+        setProductos(data);
     };
 
-    // Función para comprar un producto
     const comprarProducto = async (id) => {
         await fetch(`http://localhost:4000/api/productos/comprar/${id}`, {
-            method: 'DELETE', // Método para eliminar el producto después de la compra
-            headers: { Authorization: `Bearer ${token}` }, // Envia el token en las cabeceras
+            method: 'DELETE',
+            headers: { Authorization: `Bearer ${token}` },
         });
-        fetchProductos(); // Actualiza la lista de productos después de la compra
+        fetchProductos();
+    };
+
+    // Función para redirigir a la página principal
+    const handleGoHome = () => {
+        navigate('/');  // Redirige a la página principal
     };
 
     return (
         <div>
             <h2>Bienvenido, Usuario</h2>
+
+            <button onClick={handleGoHome}>Volver a Inicio</button>  {/* Botón para volver a la página principal */}
 
             <h3>Productos Disponibles</h3>
             <ul>

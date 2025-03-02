@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';  // Importar useNavigate
+import '../estilos/AdminPage.css';
 
 const AdminPage = () => {
     const [productos, setProductos] = useState([]);
@@ -11,7 +12,7 @@ const AdminPage = () => {
     const [currentProductId, setCurrentProductId] = useState(null);
     const [error, setError] = useState('');
     const token = localStorage.getItem('token');
-    const navigate = useNavigate();
+    const navigate = useNavigate();  // Inicializar useNavigate
 
     useEffect(() => {
         fetchProductos();
@@ -124,9 +125,16 @@ const AdminPage = () => {
         setCurrentProductId(producto._id);
     };
 
+    // Función para redirigir a la página principal
+    const handleGoHome = () => {
+        navigate('/');  // Redirige a la página principal
+    };
+
     return (
         <div>
             <h2>Panel de Administrador</h2>
+
+            <button onClick={handleGoHome}>Volver a Inicio</button>  {/* Botón para volver a la página principal */}
 
             <h3>Productos</h3>
             <button onClick={() => setEditing(true)}>Agregar Producto</button>
