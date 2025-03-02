@@ -1,22 +1,24 @@
-import React, { useState } from "react";
-import Login from "../Componentes/Login";
-import Register from "../Componentes/Register";
-import ProductList from "../Componentes/ProductList";
+import React from 'react';
+import RegisterUser from '../components/RegisterUser';
+import RegisterAdmin from '../components/RegisterAdmin';
+import Login from '../components/Login';
 
 const Home = () => {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-
   return (
-    <div>
+    <div className="home-container">
       <h1>Bienvenido a la Cafetería</h1>
-      {!isAuthenticated ? (
-        <>
-          <Login onLogin={() => setIsAuthenticated(true)} />
-          <Register />
-        </>
-      ) : (
-        <ProductList />
-      )}
+      <p>Regístrate o inicia sesión según tu rol:</p>
+
+      <div className="forms-container">
+        {/* Formulario para registrar un usuario normal */}
+        <RegisterUser />
+
+        {/* Formulario para registrar un administrador */}
+        <RegisterAdmin />
+
+        {/* Formulario de login con opción de logueo como usuario o admin */}
+        <Login />
+      </div>
     </div>
   );
 };
