@@ -15,7 +15,7 @@ router.post('/agregar', authenticate, isAdmin, async (req, res) => {
         let productoExistente = await Producto.findOne({ nombre });
 
         if (productoExistente) {
-            return res.status(400).json({ message: 'El producto ya existe. Si deaseas agregar mas productos prueba con editar.' });
+            return res.status(400).json({ message: 'El producto ya existe. Prueba con otro producto' });
         }
 
         const nuevoProducto = new Producto({ nombre, cantidad, precio });
