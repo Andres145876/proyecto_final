@@ -1,0 +1,97 @@
+/* Estilos generales */
+.adminPage {
+    font-family: 'Poppins', Arial, sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+/* Contenedor principal */
+main {
+    padding: 30px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* Secciones */
+section {
+    margin-bottom: 20px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Encabezados */
+h1, h2 {
+    color: #333;
+    margin-bottom: 15px;
+}
+
+/* Botón principal */
+.boton {
+    display: inline-block;
+    padding: 10px 15px;
+    font-size: 14px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    text-align: center;
+    margin: 10px 0; /* Añadir margen */
+}
+
+.boton:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+/* Botón eliminar */
+.botonEliminar {
+    background-color: #dc3545;
+    color: white;
+    margin-right: 10px; /* Añadir margen derecho */
+    width: 100px; /* Ancho fijo */
+    text-align: center;
+}
+
+.botonEliminar:hover {
+    background-color: #a71d2a;
+}
+
+/* Botón editar */
+.botonEditar {
+    background-color: #ffc107;
+    color: black;
+    margin-right: 10px; /* Añadir margen derecho */
+    width: 100px; /* Ancho fijo */
+    text-align: center;
+}
+
+.botonEditar:hover {
+    background-color: #e0a800;
+}
+
+/* Lista de productos y usuarios */
+.lista {
+    list-style: none;
+    padding: 0;
+}
+
+.lista li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #f9f9f9;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.lista li div {
+    display: flex;
+    gap: 10px;
+}

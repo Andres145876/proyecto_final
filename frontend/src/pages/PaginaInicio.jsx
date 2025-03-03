@@ -1,19 +1,34 @@
-import { Link } from "react-router-dom";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import '../estilos/PaginaInicio.css';
+import fondo from '../ass/fondo.jpg';
 
-const Index = () => {
+const PaginaInicio = () => {
     return (
         <div>
-        <h1>Bienvenido a la Cafetería</h1>
-        <nav>
-            <ul>
-            <li><Link to="/nosotros">Nosotros</Link></li>
-            <li><Link to="/contactanos">Contáctanos</Link></li>
-            <li><Link to="/cart">Carrito</Link></li>
-            <li><Link to="/">Cerrar sesión</Link></li>
-            </ul>
-        </nav>
+            <header>
+                <h1>Bienvenidos a Cafetería Bora</h1>
+            </header>
+
+            <nav>
+                <Link to="/">Cerrar sesion</Link>
+                <Link to="/user">Ver Menú y Pedir</Link>
+                <Link to="/contactanos">Contacto</Link>
+                <Link to="/nosotros">Nosotros</Link>
+                <a href="https://maps.app.goo.gl/Npx5byAWPpSfkHH19" target="_blank" rel="noopener noreferrer">Ubicación</a>
+            </nav>
+
+            <img src={fondo} alt="Cafetería Bora" style={{ width: '100%', maxHeight: '100', objectFit: 'cover' }} />
+
+            <footer>
+                <p>&copy; 2025 Cafetería Bora. Todos los derechos reservados.</p>
+                <p>Síguenos en:
+                    <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">Facebook</a> |
+                    <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a>
+                </p>
+            </footer>
         </div>
     );
-    };
+};
 
-    export default Index;
+export default PaginaInicio;

@@ -34,7 +34,7 @@ const Login = () => {
             if (data.rol === 'Administrador') {
                 navigate('/admin');
             } else {
-                navigate('/user');
+                navigate('/pagina-inicio');
             }
         } catch (err) {
             setMessage(err.response?.data?.message || 'Error al iniciar sesión');

@@ -3,11 +3,14 @@ import { AuthProvider } from './Contexto/Authentication';
 import Home from './pages/Home';
 import RegisterUser from './components/RegisterUser';
 import RegisterAdmin from './components/RegisterAdmin';
-import Login from './components/Login';
+import Login from './pages/Login';
 import ProductList from './components/ProductList';
 import AdminPage from './pages/AdminPage';
 import UserPage from './pages/UserPage';
 import ProtectedRoute from './components/ProtectedRoute';
+import PaginaInicio from './pages/PaginaInicio';
+import Nosotros from './pages/Nosotros';
+import Contactanos from './pages/Contactanos';
 
 function App() {
     return (
@@ -21,6 +24,10 @@ function App() {
                     <Route path="/login-admin" element={<Login />} />
                     <Route path="/ver" element={<ProductList />} />
                     <Route path="/comprar" element={<ProductList />} />
+                    <Route path="/pagina-inicio" element={<PaginaInicio />} />
+                    <Route path="/user" element={<UserPage />} />
+                    <Route path="/nosotros" element={<Nosotros />} />
+                    <Route path="/contactanos" element={<Contactanos />} />
 
                     {/* Rutas protegidas */}
                     <Route path="/admin" element={
