@@ -1,27 +1,32 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../Contexto/Authentication';
 
 const API_URI = 'http://localhost:4000/api/Usuarios';
+
 const Login = () => {
     const [email, setEmail] = useState('');
     const [pass, setPass] = useState('');
     const [role, setRole] = useState('user'); // user | admin
     const [message, setMessage] = useState('');
     const navigate = useNavigate();
+    const { login } = useAuth(); // Usamos el contexto de autenticación para actualizar el estado global
 
     const handleLogin = async (e) => {
         e.preventDefault();
         try {
-            // Dependiendo del rol, llamamos a /login o /login-admin
             const endpoint = role === 'user' ? '/login' : '/login-admin';
             const res = await axios.post(`${API_URI}${endpoint}`, { email, pass });
             const data = res.data;
 
             console.log("Datos recibidos del backend:", data);
 
+            // Guardamos el token y la información del usuario en localStorage
             localStorage.setItem('token', data.token);
-            localStorage.setItem('role', data.rol); // "Usuario" o "Administrador"
+            localStorage.setItem('user', JSON.stringify({ role: data.rol, email: data.email }));
+
+            login(data); // Usamos la función login desde el contexto para actualizar el estado global
 
             setMessage(data.message);
 
