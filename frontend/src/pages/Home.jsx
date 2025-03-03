@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import RegisterUser from '../components/RegisterUser';
 import RegisterAdmin from '../components/RegisterAdmin';
-import Login from '../components/Login';
+import Login from '../pages/Login';
 import { useAuth } from '../Contexto/Authentication';
 import { useNavigate } from 'react-router-dom';
 import '../estilos/HomePage.css';
@@ -17,7 +17,7 @@ const Home = () => {
             if (user.role === 'Administrador') {
                 navigate('/admin');
             } else if (user.role === 'Usuario') {
-                navigate('/user');
+                navigate('/pagina-inicio');
             }
         }
     }, [user, navigate]);

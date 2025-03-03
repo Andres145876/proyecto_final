@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';  // Importar useNavigate
-import '../estilos/AdminPage.css';
+import { useNavigate, Link } from 'react-router-dom';
+import styles from '../estilos/AdminPage.module.css'; // Usar CSS Modules
 
 const AdminPage = () => {
     const [productos, setProductos] = useState([]);
@@ -8,11 +8,11 @@ const AdminPage = () => {
     const [nombre, setNombre] = useState('');
     const [cantidad, setCantidad] = useState('');
     const [precio, setPrecio] = useState('');
-    const [editing, setEditing] = useState(false); // Controla si estamos editando un producto
+    const [editing, setEditing] = useState(false);
     const [currentProductId, setCurrentProductId] = useState(null);
     const [error, setError] = useState('');
     const token = localStorage.getItem('token');
-    const navigate = useNavigate();  // Inicializar useNavigate
+    const navigate = useNavigate();
 
     useEffect(() => {
         fetchProductos();
@@ -125,16 +125,16 @@ const AdminPage = () => {
         setCurrentProductId(producto._id);
     };
 
-    // Función para redirigir a la página principal
     const handleGoHome = () => {
-        navigate('/');  // Redirige a la página principal
+        navigate('/');
     };
 
     return (
-        <div>
+        <div className={styles.adminPage}>
             <h2>Panel de Administrador</h2>
 
-            <button onClick={handleGoHome}>Volver a Inicio</button>  {/* Botón para volver a la página principal */}
+            <button onClick={handleGoHome}>Volver a Inicio</button>
+            <Link to="/pagina-inicio" className={styles.boton}>Ir a Página Inicio</Link>
 
             <h3>Productos</h3>
             <button onClick={() => setEditing(true)}>Agregar Producto</button>
@@ -176,23 +176,25 @@ const AdminPage = () => {
                     </form>
                 </div>
             ) : (
-                <ul>
+                <ul className={styles.lista}>
                     {productos.map((p) => (
                         <li key={p._id}>
-                            {p.nombre} - {p.cantidad} disponibles - ${p.precio}
-                            <button onClick={() => eliminarProducto(p._id)}>Eliminar</button>
-                            <button onClick={() => startEditing(p)}>Editar</button>
+                            <span>{p.nombre} - {p.cantidad} disponibles - ${p.precio}</span>
+                            <div>
+                                <button className={styles.botonEditar} onClick={() => startEditing(p)}>Editar</button>
+                                <button className={styles.botonEliminar} onClick={() => eliminarProducto(p._id)}>Eliminar</button>
+                            </div>
                         </li>
                     ))}
                 </ul>
             )}
 
             <h3>Usuarios</h3>
-            <ul>
+            <ul className={styles.lista}>
                 {usuarios.map((u) => (
                     <li key={u._id}>
-                        {u.name} - {u.email}
-                        <button onClick={() => eliminarUsuario(u._id)}>Eliminar</button>
+                        <span>{u.name} - {u.email}</span>
+                        <button className={styles.botonEliminar} onClick={() => eliminarUsuario(u._id)}>Eliminar</button>
                     </li>
                 ))}
             </ul>
