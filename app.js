@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const cors = require('cors');
 
-// Importar rutas
+// Importar rutas 
 const authRoutes = require('./Rutas/Usuarios.js');
 const productoRoutes = require('./Rutas/Productos');
 
